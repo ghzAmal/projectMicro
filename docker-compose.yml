@@ -28,9 +28,10 @@ services:
       - "8088:8088"
     depends_on:
       - configserver
+      - discovery
     networks:
       - projectmicro_default
-      
+
   mysql-commande:
     image: mysql:8
     environment:
@@ -41,6 +42,14 @@ services:
     networks:
       - projectmicro_default
 
+  mongo-livreur:
+    image: mongo:5
+    container_name: mongo-livreur
+    ports:
+      - "27017:27017"
+    networks:
+      - projectmicro_default
+
   service-commande:
     build:
       context: ./commande-livreur-app/ServiceCommande
@@ -48,12 +57,23 @@ services:
       - "9090:9090"
     depends_on:
       - mysql-commande
+      - configserver
+      - discovery
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
     networks:
       - projectmicro_default
+
   service-livreur:
     build:
       context: ./commande-livreur-app/serviceLivreur
     ports:
       - "9091:9091"
+    depends_on:
+      - mongo-livreur
+      - configserver
+      - discovery
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
     networks:
       - projectmicro_default
