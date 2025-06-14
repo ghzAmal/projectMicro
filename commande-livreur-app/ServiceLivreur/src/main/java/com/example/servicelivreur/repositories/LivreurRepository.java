@@ -1,7 +1,7 @@
-package com.example.servicelivreur.repositories;
+package com.example.serviceLivreur.repositories;
 
 
-import com.example.servicelivreur.entities.Livreur;
+import com.example.serviceLivreur.entities.Livreur;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;

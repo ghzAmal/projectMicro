@@ -1,4 +1,4 @@
-package com.example.servicelivreur.entities;
+package com.example.serviceLivreur.entities;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

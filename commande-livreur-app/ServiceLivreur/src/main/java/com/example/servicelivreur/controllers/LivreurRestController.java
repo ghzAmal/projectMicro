@@ -1,7 +1,8 @@
-package com.example.servicelivreur.controllers;
+package com.example.serviceLivreur.controllers;
 
-import com.example.servicelivreur.dto.LivreurDTO;
-import com.example.servicelivreur.services.ILivreurService;
+import com.example.serviceLivreur.dto.CommandeDTO;
+import com.example.serviceLivreur.dto.LivreurDTO;
+import com.example.serviceLivreur.services.ILivreurService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -47,10 +48,10 @@ public class LivreurRestController {
         return livreurServiceService.getLivreurByNom(name);
     }
 
-
-
-
-
+    @PostMapping("affecterCommande/{nameliv}")
+    public void affecterCommande(@PathVariable String nameliv,@RequestBody CommandeDTO commande){
+         livreurServiceService.affecterCommande(nameliv,commande);
+    }
 
 
 }

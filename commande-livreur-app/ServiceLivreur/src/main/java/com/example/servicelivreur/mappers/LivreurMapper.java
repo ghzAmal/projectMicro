@@ -1,7 +1,7 @@
-package com.example.servicelivreur.mappers;
+package com.example.serviceLivreur.mappers;
 
-import com.example.servicelivreur.dto.LivreurDTO;
-import com.example.servicelivreur.entities.Livreur;
+import com.example.serviceLivreur.dto.LivreurDTO;
+import com.example.serviceLivreur.entities.Livreur;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

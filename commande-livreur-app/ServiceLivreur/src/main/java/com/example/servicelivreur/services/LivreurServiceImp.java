@@ -1,9 +1,11 @@
-package com.example.servicelivreur.services;
+package com.example.serviceLivreur.services;
 
-import com.example.servicelivreur.dto.LivreurDTO;
-import com.example.servicelivreur.entities.Livreur;
-import com.example.servicelivreur.mappers.LivreurMapper;
-import com.example.servicelivreur.repositories.LivreurRepository;
+import com.example.serviceLivreur.dto.CommandeDTO;
+import com.example.serviceLivreur.dto.LivreurDTO;
+import com.example.serviceLivreur.entities.Livreur;
+import com.example.serviceLivreur.feignclient.CommandeClient;
+import com.example.serviceLivreur.mappers.LivreurMapper;
+import com.example.serviceLivreur.repositories.LivreurRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -20,8 +22,10 @@ import java.util.Map;
 @Service
 @RequiredArgsConstructor
 public class LivreurServiceImp implements ILivreurService {
+
     private final LivreurRepository livreurRepository;
     private final LivreurMapper livreurMapper;
+    private final CommandeClient commandeClient;
 
     @Override
     public LivreurDTO add(LivreurDTO livreurDto) {
@@ -79,6 +83,16 @@ public class LivreurServiceImp implements ILivreurService {
         return livreurRepository.findByNom(name)
                 .map(livreurMapper::mapToDto)
                 .orElseThrow(() ->new IllegalArgumentException("Livreur not found with this name"));
+    }
+
+    @Override
+    public void affecterCommande(String nomLivreur, CommandeDTO commande) {
+        LivreurDTO liv =getLivreurByNom(nomLivreur);
+        if(liv ==null ){
+            throw new IllegalArgumentException("Livreur not found");
+        }
+        commande.setIdLivreur(liv.id());
+        commandeClient.createCommande(commande);
     }
 
 

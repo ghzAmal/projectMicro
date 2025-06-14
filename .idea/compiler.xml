@@ -9,19 +9,33 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Discovery" />
         <module name="Gateway_API" />
+        <module name="config-server" />
+      </profile>
+      <profile name="Annotation profile for Service-Livreur" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.6.3/mapstruct-1.6.3.jar" />
+        </processorPath>
+        <module name="ServiceCommande" />
+        <module name="ServiceLivreur" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ServiceCommande" target="17" />
-      <module name="ServiceLivreur" target="17" />
+      <module name="ConfigServer" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ConfigServer" options="-parameters" />
       <module name="Discovery" options="-parameters" />
       <module name="Gateway_API" options="-parameters" />
       <module name="ServiceCommande" options="-parameters" />
       <module name="ServiceLivreur" options="-parameters" />
+      <module name="config-server" options="-parameters" />
     </option>
   </component>
 </project>

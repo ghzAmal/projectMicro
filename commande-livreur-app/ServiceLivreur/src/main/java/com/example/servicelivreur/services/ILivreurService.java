@@ -1,6 +1,7 @@
-package com.example.servicelivreur.services;
+package com.example.serviceLivreur.services;
 
-import com.example.servicelivreur.dto.LivreurDTO;
+import com.example.serviceLivreur.dto.CommandeDTO;
+import com.example.serviceLivreur.dto.LivreurDTO;
 import org.springframework.data.domain.Page;
 
 import java.util.Map;
@@ -18,4 +19,6 @@ public interface ILivreurService {
     LivreurDTO getLivreur(String id);
 
     LivreurDTO getLivreurByNom(String nom);
+
+    void affecterCommande(String nomLivreur , CommandeDTO commande);
 }

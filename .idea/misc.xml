@@ -10,6 +10,10 @@
         <option value="$PROJECT_DIR$/article-marque-app/ServiceArticle/pom.xml" />
         <option value="$PROJECT_DIR$/commande-livreur-app/Discovery/pom.xml" />
         <option value="$PROJECT_DIR$/commande-livreur-app/Gateway_API/pom.xml" />
+        <option value="$PROJECT_DIR$/commande-livreur-app/ServiceLivreur/pom.xml" />
+        <option value="$PROJECT_DIR$/commande-livreur-app/ServiceCommande/pom.xml" />
+        <option value="$PROJECT_DIR$/ConfigServer/pom.xml" />
+        <option value="$PROJECT_DIR$/commande-livreur-app/ConfigServer/pom.xml" />
       </list>
     </option>
   </component>

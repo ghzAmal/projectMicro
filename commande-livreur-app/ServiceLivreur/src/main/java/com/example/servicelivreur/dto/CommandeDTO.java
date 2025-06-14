@@ -1,11 +1,17 @@
-package com.example.servicelivreur.dto;
+package com.example.serviceLivreur.dto;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
+
 public class CommandeDTO {
-    private Long id;
-    private String nom;
-    private double prix;
-    private Long marqueId;
+    Long id;
+    String reference;
+    String description;
+    Double montant;
+    LocalDateTime dateCommande;
+    String statut;
+    String idLivreur;
 }

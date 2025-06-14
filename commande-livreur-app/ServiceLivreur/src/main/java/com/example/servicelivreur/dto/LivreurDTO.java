@@ -1,4 +1,4 @@
-package com.example.servicelivreur.dto;
+package com.example.serviceLivreur.dto;
 
 public record LivreurDTO(
         String id,
