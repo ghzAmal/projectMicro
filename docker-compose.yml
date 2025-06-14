@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  service-commande:
+    build:
+      context: ./commande-livreur-app/ServiceCommande
+    ports:
+      - "9090:9090"
+
+  service-livreur:
+    build:
+      context: ./commande-livreur-app/serviceLivreur  # adapte si dossier existe
+    ports:
+      - "9091:9091"
+
+  gateway_api:
+    build:
+      context: ./commande-livreur-app/gateway_api  # adapte si dossier existe
+    ports:
+      - "8088:8088"
+
+  discovery:
+    build:
+      context: ./commande-livreur-app/discovery  # adapte si dossier existe
+    ports:
+      - "8761:8761"
+
+  configserver:
+    build:
+      context: ./configserver  # adapte si dossier existe
+    ports:
+      - "8888:8888"
