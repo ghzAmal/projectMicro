@@ -30,3 +30,19 @@ services:
       - configserver
     networks:
       - projectmicro_default
+      
+  service-commande:
+    build:
+      context: ./commande-livreur-app/ServiceCommande
+    ports:
+      - "9090:9090"
+    networks:
+      - projectmicro_default
+
+  service-livreur:
+    build:
+      context: ./commande-livreur-app/serviceLivreur
+    ports:
+      - "9091:9091"
+    networks:
+      - projectmicro_default
